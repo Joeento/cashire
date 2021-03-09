@@ -1,0 +1,23 @@
+{
+  "name": "cashire",
+  "version": "0.1.0",
+  "description": "Simple IoC service for handling a cash register",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joeento/cashire.git"
+  },
+  "author": "Eric Kudler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joeento/cashire/issues"
+  },
+  "homepage": "https://github.com/Joeento/cashire#readme",
+  "devDependencies": {
+    "chai": "^4.3.3",
+    "mocha": "^8.3.1"
+  }
+}
