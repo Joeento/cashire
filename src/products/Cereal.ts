@@ -10,6 +10,6 @@ export class Cereal implements ProductInterface {
     this.cost = cost;
   }
   price(): number {
-    return cost;
+    return this.cost;
   }
 }
