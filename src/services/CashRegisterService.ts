@@ -6,6 +6,6 @@ export class CashRegisterService {
     for (let product of products) {
       sum += product.price();
     }
-    return sum;
+    return Math.max(sum, 0.00);
   }
 }
