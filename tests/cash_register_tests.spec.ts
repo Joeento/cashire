@@ -7,7 +7,7 @@ import { CashRegisterService } from '../src/services/CashRegisterService';
 
 describe('Cash Register',
   () => {
-    it('should correctly calculate cost', () => {
+    it('should correctly sum costs', () => {
       const apple: Fruit = new Fruit(1, "Apple", 5.00, 1);
       const orange: Fruit = new Fruit(1, "orange", 3.00, 1);
       const cheerios: Cereal = new Cereal(1, "Cheerios", 2.00);
