@@ -47,4 +47,30 @@ describe('Cash Register',
       const tax = await cashRegisterService.calculateTax(apple.price(), 'NY');
       expect(tax).to.equal(.43);
     });
+    it('should find total price without coupon', async () => {
+      const apple: Fruit = new Fruit(1, "Apple", 5.00, 1);
+      const orange: Fruit = new Fruit(2, "Orange", 3.00, 1);
+
+      const cheerios: Cereal = new Cereal(3, "Cheerios", 2.00);
+      const fruitLoops: Cereal = new Cereal(4, "Fruit Loops", 2.00);
+      const cerealBundle: Bundle = new Bundle(1, "Cereal Bundle");
+      cerealBundle.addItem(cheerios);
+      cerealBundle.addItem(fruitLoops);
+
+      expect(await cashRegisterService.checkout([apple, orange, cerealBundle], 'NY')).to.equal(13.02);
+    });
+    it('should find total price with discount coupon', async () => {
+      const tenPercentCoupon: PercentDiscountCoupon = new PercentDiscountCoupon(1, "10% Off!", 10);
+
+      const apple: Fruit = new Fruit(1, "Apple", 5.00, 1);
+      const orange: Fruit = new Fruit(2, "Orange", 3.00, 1);
+
+      const cheerios: Cereal = new Cereal(3, "Cheerios", 2.00);
+      const fruitLoops: Cereal = new Cereal(4, "Fruit Loops", 2.00);
+      const cerealBundle: Bundle = new Bundle(1, "Cereal Bundle");
+      cerealBundle.addItem(cheerios);
+      cerealBundle.addItem(fruitLoops);
+
+      expect(await cashRegisterService.checkoutWithCoupon([apple, orange, cerealBundle], tenPercentCoupon, 'NY')).to.equal(11.72);
+    });
 });
