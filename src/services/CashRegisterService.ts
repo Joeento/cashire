@@ -18,4 +18,9 @@ export class CashRegisterService {
     const discount = coupon.calculateDiscount(product);
     return product.price() - discount;
   }
+  async calculateTax(price: number, state: string): Promise<number> {
+    const rate: number = await this.taxService.getTaxRate(state);
+    const tax: number = price * (rate / 100);
+    return parseFloat(tax.toFixed(2));
+  }
 }
