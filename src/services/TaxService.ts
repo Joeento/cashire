@@ -2,7 +2,7 @@ import { CouponInterface } from "../interfaces/CouponInterface";
 import { ProductInterface } from "../interfaces/ProductInterface";
 
 export class TaxService {
-  static getTaxRate(state: string): Promise<number> {
+  getTaxRate(state: string): Promise<number> {
     const ratesByStates: { [key: string]: number } = {
       'AZ': 8.40,
       'CA': 8.68,
