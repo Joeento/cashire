@@ -1,2 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CashRegisterService = exports.Fruit = exports.Cereal = exports.PriceDiscountCoupon = exports.PercentDiscountCoupon = void 0;
+var PercentDiscountCoupon_1 = require("./src/coupons/PercentDiscountCoupon");
+Object.defineProperty(exports, "PercentDiscountCoupon", { enumerable: true, get: function () { return PercentDiscountCoupon_1.PercentDiscountCoupon; } });
+var PriceDiscountCoupon_1 = require("./src/coupons/PriceDiscountCoupon");
+Object.defineProperty(exports, "PriceDiscountCoupon", { enumerable: true, get: function () { return PriceDiscountCoupon_1.PriceDiscountCoupon; } });
+var Cereal_1 = require("./src/products/Cereal");
+Object.defineProperty(exports, "Cereal", { enumerable: true, get: function () { return Cereal_1.Cereal; } });
+var Fruit_1 = require("./src/products/Fruit");
+Object.defineProperty(exports, "Fruit", { enumerable: true, get: function () { return Fruit_1.Fruit; } });
+var CashRegisterService_1 = require("./src/services/CashRegisterService");
+Object.defineProperty(exports, "CashRegisterService", { enumerable: true, get: function () { return CashRegisterService_1.CashRegisterService; } });
