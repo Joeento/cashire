@@ -1,7 +1,7 @@
 import { ProductInterface } from "../interfaces/ProductInterface";
 import { CouponInterface } from "../interfaces/CouponInterface";
 
-export class PercentDiscountCoupon implements CouponInterface {
+export class PriceDiscountCoupon implements CouponInterface {
   id: number;
   name: string;
   value: number
@@ -11,6 +11,6 @@ export class PercentDiscountCoupon implements CouponInterface {
     this.value = value;
   }
   calculateDiscount(product: ProductInterface): number {
-    return this.value * -1;
+    return this.value;
   }
 }

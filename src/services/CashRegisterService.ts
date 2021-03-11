@@ -1,3 +1,4 @@
+import { CouponInterface } from "../interfaces/CouponInterface";
 import { ProductInterface } from "../interfaces/ProductInterface";
 
 export class CashRegisterService {
@@ -7,5 +8,9 @@ export class CashRegisterService {
       sum += product.price();
     }
     return Math.max(sum, 0.00);
+  }
+  static applyDiscount(product: ProductInterface, coupon: CouponInterface): number {
+    const discount = coupon.calculateDiscount(product);
+    return product.price() - discount;
   }
 }
