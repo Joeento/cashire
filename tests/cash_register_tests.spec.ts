@@ -29,4 +29,9 @@ describe('Cash Register',
       const products: ProductInterface[] = [apple, orange, cheerios];
       expect(cashRegisterService.tallyPrice(products)).to.equal(10.00);
     });
+    it('should calculate tax', async () => {
+      const apple: Fruit = new Fruit(1, "Apple", 5.00, 1);
+      const tax = await cashRegisterService.calculateTax(apple.price(), 'NY');
+      expect(tax).to.equal(.43);
+    });
 });
