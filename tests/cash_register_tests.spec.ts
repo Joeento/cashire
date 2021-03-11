@@ -7,15 +7,28 @@ import { Cereal } from '../src/products/Cereal';
 import { Fruit } from '../src/products/Fruit';
 import { CashRegisterService } from '../src/services/CashRegisterService';
 import { TaxService } from '../src/services/TaxService';
+import { Bundle } from '../src/products/Bundle';
 
 describe('Cash Register',
   () => {
     const taxService: TaxService = new TaxService();
     const cashRegisterService: CashRegisterService = new CashRegisterService(taxService);
-    it('should take off percentage discount', () => {
+    it('should take off percentage discount on one product', () => {
       const cheerios: Cereal = new Cereal(1, "Cheerios", 2.00);
       const tenPercentCoupon: PercentDiscountCoupon = new PercentDiscountCoupon(1, "10% Off Produce!", 10);
       expect(cashRegisterService.applyDiscount(cheerios, tenPercentCoupon)).to.equal(1.80);
+    });
+    it('should take off percentage discount on multiple products', () => {
+      const apple: Fruit = new Fruit(1, "Apple", 5.00, 1);
+      const orange: Fruit = new Fruit(2, "orange", 3.00, 1);
+      const cheerios: Cereal = new Cereal(3, "Cheerios", 2.00);
+      const cart: Bundle = new Bundle(1, "Cart");
+      cart.addItem(apple);
+      cart.addItem(orange);
+      cart.addItem(cheerios);
+
+      const tenPercentCoupon: PercentDiscountCoupon = new PercentDiscountCoupon(1, "10% Off Produce!", 10);
+      expect(cashRegisterService.applyDiscount(cart, tenPercentCoupon)).to.equal(9.00);
     });
     it('should take off cash discount', () => {
       const cheerios: Cereal = new Cereal(1, "Cheerios", 3.00);
