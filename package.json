@@ -29,8 +29,6 @@
   },
   "dependencies": {
     "@types/emojione": "^2.2.6",
-    "emojione": "^4.5.0",
-    "inversify": "^5.0.5",
-    "reflect-metadata": "^0.1.13"
+    "emojione": "^4.5.0"
   }
 }
