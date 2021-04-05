@@ -1,6 +1,10 @@
+import "reflect-metadata";
+import { injectable } from "inversify";
+
 import { CouponInterface } from "../interfaces/CouponInterface";
 import { ProductInterface } from "../interfaces/ProductInterface";
 
+@injectable()
 export class TaxService {
   getTaxRate(state: string): Promise<number> {
     const ratesByStates: { [key: string]: number } = {
