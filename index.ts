@@ -7,6 +7,7 @@ import { PriceDiscountCoupon } from "./src/coupons/PriceDiscountCoupon";
 import { Cereal } from "./src/products/Cereal";
 import { Fruit } from "./src/products/Fruit";
 
+import { TaxService } from "./src/services/TaxService";
 import { CashRegisterService } from "./src/services/CashRegisterService";
 
 export { CouponInterface,
@@ -15,5 +16,6 @@ export { CouponInterface,
          PriceDiscountCoupon,
          Cereal,
          Fruit,
+         TaxService,
          CashRegisterService
         }
